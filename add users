@@ -1,0 +1,86 @@
+/* *********************Add new contacts************* */
+
+case 1:
+    system("cls");
+    
+    fp=fopen("contact.txt","a");
+    
+    for (;;)
+    
+    {
+        fflush(stdin);
+        
+        printf("To exit enter in the name input\nName (Use identical):");
+        
+        scanf("%[^\n]",&list.name);
+        
+        printf("%s", list.name);
+        
+        if(stricmp(list.name,"")==0 :: stricmp(list.name," ")==0)
+        
+            break;
+            
+        fflush(stdin);
+        
+        printf("\nPhone");
+        
+        fflush(stdin);
+         do
+         {
+             printf("(Enter the valid number):");
+             
+             fflush(stdin);
+             
+             gets(list.ph);
+         }
+       
+        while (validNum(list.ph)==0);
+        
+        {
+            fseek(fp,0,SEEk_END);
+            
+            fwrite(&list.ph,sizeof(list),1,fp);
+            
+        }
+        printf("%s",list.ph);
+        
+        fflush(stdin);
+        
+        printf("\nCRN:");
+        
+        fflush(stdin);
+        
+        gets(list.CRN);
+        
+        printf("%s",list.CRN);
+        
+        fflush(stdin);
+        
+        printf("\nAddress:");
+        
+        scanf("%s", list.add);
+        
+        printf("%s", list.add);
+        
+        fflush(stdin);
+        
+        printf("\nEmail Address:");
+        
+        gets(list.email);
+        
+        printf("%s", list.email);
+        
+        printf("\n");
+        
+        fwrite(&list,sizeof(list),1,fp);
+        
+        printf("\tMember Added Successfully\n\n");
+    }
+    fclose(fp);
+    
+    break;
+        
+        
+        
+        
+    }
