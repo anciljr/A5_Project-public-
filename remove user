@@ -1,0 +1,50 @@
+system("cls");
+
+fflush(stdin);
+
+printf("\n\n\t..::DELETE A CONTACT\n\t=========================\n\t.....")
+
+scanf("%[^\n]",&name);
+
+fp=fopen("contact.txt","r");
+
+ft=fopen("temp.dat","w");
+
+while(freed(&list,sizeof(list),1,fp)!=0)
+
+    if (stricmp(name,list.name)!=0)
+    
+        fwrite(&list,sizeof(list),1,ft);
+        
+fclose(fp);
+
+fclose(ft);
+
+remove("contact.txt");
+
+rename("temp.dat","contact,txt");
+
+    printf("Contact deleted");
+
+    break;
+
+default:
+
+    printf("Invalid choice");
+    
+    break;
+    
+}
+
+printf("\n\n\n..:Enter the Choice:\n\n\t[1] Main Menu\t\t[0] Exit\n");
+
+scanf("%d",&ch);
+
+switch (ch)
+
+{
+    case 1:
+    
+        goto start;
+        
+    case 0:
